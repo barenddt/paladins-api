@@ -1,0 +1,16 @@
+{
+  "name": "paladins-api",
+  "version": "1.1.3",
+  "description": "Wrapper for the Paladins API",
+  "main": "paladins-api.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Barend Du Toit",
+  "license": "ISC",
+  "dependencies": {
+    "md5": "^2.2.1",
+    "moment": "^2.17.1",
+    "request": "^2.81.0"
+  }
+}
