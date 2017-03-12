@@ -1,4 +1,4 @@
-Welcome to paladins-api Wrapper!
+Welcome to the paladins-api Wrapper!
 ------------
 
 This is a Javascript wrapper for the Paladins API to simplify making requests and handling the responses.
@@ -85,3 +85,11 @@ Methods
 ```getDataUsed(session)``` - Returns an object containing resources used.
 
 >**Note:** More methods will be added in the future.
+
+Links
+--------
+
+[GitHub Repository](https://github.com/barenddt/paladins-api-nodejs)
+[Development Credentials Application Form](https://fs12.formsite.com/HiRez/form48/secure_index.html)
+[Official Hi-Rez API Documentation](https://docs.google.com/a/hirezstudios.com/document/d/1OFS-3ocSx-1Rvg4afAnEHlT3917MAK_6eJTR6rzr-BM/edit)
+[Hi-Rez API Terms of Use Agreement](http://www.hirezstudios.com/wp-content/themes/hi-rez-studios/pdf/api-terms-of-use-agreement.pdf)
