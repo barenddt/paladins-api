@@ -89,7 +89,7 @@ Methods
 Links
 --------
 
-[GitHub Repository](https://github.com/barenddt/paladins-api-nodejs)
-[Development Credentials Application Form](https://fs12.formsite.com/HiRez/form48/secure_index.html)
-[Official Hi-Rez API Documentation](https://docs.google.com/a/hirezstudios.com/document/d/1OFS-3ocSx-1Rvg4afAnEHlT3917MAK_6eJTR6rzr-BM/edit)
-[Hi-Rez API Terms of Use Agreement](http://www.hirezstudios.com/wp-content/themes/hi-rez-studios/pdf/api-terms-of-use-agreement.pdf)
+* [GitHub Repository](https://github.com/barenddt/paladins-api-nodejs)
+* [Development Credentials Application Form](https://fs12.formsite.com/HiRez/form48/secure_index.html)
+* [Official Hi-Rez API Documentation](https://docs.google.com/a/hirezstudios.com/document/d/1OFS-3ocSx-1Rvg4afAnEHlT3917MAK_6eJTR6rzr-BM/edit)
+* [Hi-Rez API Terms of Use Agreement](http://www.hirezstudios.com/wp-content/themes/hi-rez-studios/pdf/api-terms-of-use-agreement.pdf)
