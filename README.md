@@ -7,10 +7,10 @@ This is a Javascript wrapper for the Paladins API to simplify making requests an
 
 Navigation
 -------------
-* [Installation](#install)
-* [Setup](#setup)
-* [Creating a Session](#session)
-* [Usage](#usage)
+* [Installation](#installation)
+* [Setup](#setting-up)
+* [Creating a Session](#creating-a-session)
+* [Usage](#usage-get-a-players-stats)
 * [Available Methods](#methods)
 * [Links](#links)
 
