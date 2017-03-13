@@ -5,15 +5,23 @@ This is a Javascript wrapper for the Paladins API to simplify making requests an
 
 >**Note:** This wrapper is still in early stages of development. Some API methods are not yet implemented.
 
+Navigation
+-------------
+* [Installation](#install)
+* [Setup](#setup)
+* [Creating a Session](#session)
+* [Usage](#usage)
+* [Available Methods](#methods)
+* [Links](#links)
 
-Installation
+<span id="install">Installation</span>
 -------------
 **1.** Install the package using npm install.
 
 ```nmp install paladins-api --save```
 
 
-Setting Up
+<span id="setup">Setting Up</span>
 -------------
 **1.** Import the package to your entry file. **Ex. app.js**
 
@@ -27,7 +35,7 @@ Setting Up
 >Development credentials can be obtained by completing [this](https://fs12.formsite.com/HiRez/form48/secure_index.html) application.
 
 
-Creating a Session
+<span id="session">Creating a Session</span>
 --------------
 > **Note:**
 > Hi-Rez has limits set in place to throttle requests and sessions. Sessions expire after 15 min so re-creating a session when needed is something that needs to be implemented by yourself.
@@ -46,7 +54,7 @@ First we create a variable called ```sessionId``` so that we can store the sessi
 
 In the ```connect()``` method we have a call back function which returns the session in the ```res``` variable. We check for error's and then store the session into the ```sessionId``` variable.
 
-Usage (Get a player's stats)
+<span id="usage">Usage (Get a player's stats)</span>
 --------------
 
 This example is just to demonstrate how the process works. We're going to retrieve a players statistics using the ```getPlayer()``` method.
@@ -67,8 +75,9 @@ pal.getPlayer(sessionId, 'HiRez', (err, res) => {
 >**Note:**
 >Player name <i>'**HiRez**'</i> returns an empty object because the player does not exist...
 
-Methods
+<span id="methods">Methods</span>
 ------------
+
 
 ```connect()``` - Returns a session variable that's required for all API calls.
 
@@ -84,9 +93,15 @@ Methods
 
 ```getDataUsed(session)``` - Returns an object containing resources used.
 
+```getPlayerStatus(session, player)``` - Returns the current status of the player. (offline, in-lobby etc.)
+
+```getChampionSkins(session, champ_id)``` - Returns all skins available for chosen champion.
+
+```getChampionRanks(session, player)``` - Returns details of the players performance with all champions.
+
 >**Note:** More methods will be added in the future.
 
-Links
+<span id="links">Links</span>
 --------
 
 * [GitHub Repository](https://github.com/barenddt/paladins-api-nodejs)

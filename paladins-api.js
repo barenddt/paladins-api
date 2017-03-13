@@ -12,9 +12,20 @@ module.exports = class API {
   }
 
   getPlayer(session, player, response) {
-    var method = 'getplayer'
-    var reqUrl = this.urlBuilder(session, method, player);
-    request(reqUrl, function(err, res, body) {
+    var method = 'getplayer';
+    var builtUrl = this.urlBuilder(session, method, player);
+    request(builtUrl, function(err, res, body) {
+      if(!err) {
+        var bodyParsed = JSON.parse(body);
+        response(err, bodyParsed);
+      }
+    });
+  }
+
+  getPlayerStatus(session, player, response) {
+    var method = 'getplayerstatus';
+    var builtUrl = this.urlBuilder(session, method, player);
+    request(builtUrl, function(err, res, body) {
       if(!err) {
         var bodyParsed = JSON.parse(body);
         response(err, bodyParsed);
@@ -23,7 +34,7 @@ module.exports = class API {
   }
 
   getMatchHistory(session, player, response) {
-    var method = 'getmatchhistory'
+    var method = 'getmatchhistory';
     var reqUrl = this.urlBuilder(session, method, player);
     request(reqUrl, function(err, res, body) {
       if(!err) {
@@ -33,9 +44,9 @@ module.exports = class API {
     });
   }
 
-  getMatchDetails(session, matchId, response) {
-    var method = 'getmatchdetails'
-    var builtUrl = this.urlBuilder(session, method, null, null, matchId);
+  getMatchDetails(session, match_id, response) {
+    var method = 'getmatchdetails';
+    var builtUrl = this.urlBuilder(session, method, null, null, match_id);
     request(builtUrl, function(err, res, body) {
       if(!err) {
         var bodyParsed = JSON.parse(body);
@@ -45,7 +56,7 @@ module.exports = class API {
   }
 
   getChampions(session, response) {
-    var method = 'getchampions'
+    var method = 'getchampions';
     var builtUrl = this.urlBuilder(session, method, null, '1');
     request(builtUrl, function(err, res, body) {
       if(!err) {
@@ -56,7 +67,7 @@ module.exports = class API {
   }
 
   getChampionRanks(session, player, response) {
-    var method = 'getchampionranks'
+    var method = 'getchampionranks';
     var builtUrl = this.urlBuilder(session, method, player);
     request(builtUrl, function(err, res, body) {
       if(!err) {
@@ -66,8 +77,32 @@ module.exports = class API {
     });
   }
 
+  getChampionSkins(session, champ_id, response) {
+    var method = 'getchampionskins';
+    var builtUrl = this.urlBuilder(session, method, null, '1', null, champ_id);
+    request(builtUrl, function(err, res, body) {
+      if(!err) {
+        var bodyParsed = JSON.parse(body);
+        response(err, bodyParsed);
+      }
+    });
+  }
+
+  //Currently returns an empty object. Don't know why.
+
+  // getChampionRecommendedItems(session, champ_id, response) {
+  //   var method = 'getchampionrecommendeditems';
+  //   var builtUrl = this.urlBuilder(session, method, null, '1', null, champ_id);
+  //   request(builtUrl, function(err, res, body) {
+  //     if(!err) {
+  //       var bodyParsed = JSON.parse(body);
+  //       response(err, bodyParsed);
+  //     }
+  //   });
+  // }
+
   getItems(session, response) {
-    var method = 'getitems'
+    var method = 'getitems';
     var builtUrl = this.urlBuilder(session, method, null, '1');
     request(builtUrl, function(err, res, body) {
       if(!err) {
@@ -78,7 +113,7 @@ module.exports = class API {
   }
 
   getDataUsed(session, response) {
-    var method = 'getdataused'
+    var method = 'getdataused';
     var builtUrl = this.urlBuilder(session, method);
     request(builtUrl, function(err, res, body) {
       if(!err) {
@@ -98,18 +133,21 @@ module.exports = class API {
     });
   }
 
-  urlBuilder(session, method, player, lang, matchId) {
+  urlBuilder(session, method, player, lang, match_id, champ_id) {
     var baseURL = c.PC + '/' + method + c.JSON + '/' + this.devId + '/' +
                   this.getSignature(method) + '/' + session + '/' + this.timeStamp();
 
     if (player != null) {
       baseURL += ('/' + player);
     }
+    if (champ_id != null) {
+      baseURL += ('/' + champ_id);
+    }
     if (lang != null) {
       baseURL += ('/' + lang);
     }
-    if (matchId != null) {
-      baseURL += ('/' + matchId);
+    if (match_id != null) {
+      baseURL += ('/' + match_id);
     }
     return baseURL;
   }
