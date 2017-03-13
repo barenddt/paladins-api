@@ -1,10 +1,7 @@
-const request = require('request');
-const moment = require('moment');
-const md5 = require('md5');
-const URL    = 'http://api.paladins.com/paladinsapi.svc',
-      FORMAT = 'Json';
-
-'use strict';
+var request = require('request');
+var moment = require('moment');
+var md5 = require('md5');
+var c = require('./constants');
 
 module.exports = class API {
 
@@ -92,7 +89,7 @@ module.exports = class API {
   }
 
   connect(response) {
-    var builtUrl = URL + '/' + 'createsession' + FORMAT + '/' + this.devId + '/' + this.getSignature('createsession') + '/' + this.timeStamp();
+    var builtUrl = c.PC + '/' + 'createsession' + c.JSON + '/' + this.devId + '/' + this.getSignature('createsession') + '/' + this.timeStamp();
     request(builtUrl, function(err, res, body) {
       if(!err) {
         var bodyParsed = JSON.parse(body);
@@ -102,7 +99,7 @@ module.exports = class API {
   }
 
   urlBuilder(session, method, player, lang, matchId) {
-    var baseURL = URL + '/' + method + FORMAT + '/' + this.devId + '/' +
+    var baseURL = c.PC + '/' + method + c.JSON + '/' + this.devId + '/' +
                   this.getSignature(method) + '/' + session + '/' + this.timeStamp();
 
     if (player != null) {
