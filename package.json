@@ -1,13 +1,21 @@
 {
   "name": "paladins-api",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "Wrapper for the Paladins API",
   "main": "paladins-api.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+  "type": "git",
+  "url": "git+https://github.com/barenddt/paladins-api-nodejs.git"
+  },
   "author": "Barend Du Toit",
   "license": "ISC",
+  "bugs": {
+  "url": "https://github.com/barenddt/paladins-api-nodejs/issues"
+  },
+  "homepage": "https://github.com/barenddt/paladins-api-nodejs#readme",
   "dependencies": {
     "md5": "^2.2.1",
     "moment": "^2.17.1",
