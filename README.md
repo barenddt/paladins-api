@@ -3,7 +3,10 @@ Welcome to the paladins-api Wrapper!
 
 This is a Javascript wrapper for the Paladins API to simplify making requests and handling the responses.
 
+Current version is v1.2.5 - [Changelog](https://github.com/barenddt/paladins-api-nodejs/blob/master/CHANGELOG.md)
+
 >**Note:** This wrapper is still in early stages of development. Some API methods are not yet implemented.
+
 
 Navigation
 -------------
