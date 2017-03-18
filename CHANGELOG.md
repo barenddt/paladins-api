@@ -3,6 +3,12 @@ Changelog
 
 List of recent updates and changes to the paladins-api NodeJS wrapper.
 
+v1.2.6
+-------------
+
+* Added a few more methods for testing.
+
+
  v1.2.5
 -------------
 

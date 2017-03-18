@@ -96,6 +96,22 @@ module.exports = class API {
     });
   }
 
+  getDemoDetails(session, match_id, send) {
+    var method = 'getdemodetails';
+    var url = this.urlBuilder(session, method, null, null, match_id);
+    this.makeRequest(url, (err, data) => {
+      send(err, data);
+    });
+  }
+
+  getQueueStats(session, player, queue match_id, send) {
+    var method = 'getqueuestats';
+    var url = this.urlBuilder(session, method, player, null, null, null, queue);
+    this.makeRequest(url, (err, data) => {
+      send(err, data);
+    });
+  }
+
   getItems(session, send) {
     var method = 'getitems';
     var url = this.urlBuilder(session, method, null, this.lang);
