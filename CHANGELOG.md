@@ -1,7 +1,7 @@
 Changelog
 ===================
 
-List of recent update and changes to the paladins-api NodeJS wrapper.
+List of recent updates and changes to the paladins-api NodeJS wrapper.
 
  v1.2.5
 -------------
