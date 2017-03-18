@@ -104,7 +104,7 @@ module.exports = class API {
     });
   }
 
-  getQueueStats(session, player, queue match_id, send) {
+  getQueueStats(session, player, queue, match_id, send) {
     var method = 'getqueuestats';
     var url = this.urlBuilder(session, method, player, null, null, null, queue);
     this.makeRequest(url, (err, data) => {
