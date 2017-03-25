@@ -149,7 +149,11 @@ module.exports = class API {
   makeRequest(url, send) {
     request(url, function(err, res, body) {
       if(!err) {
-        var bodyParsed = JSON.parse(body);
+        try {
+          var bodyParsed = JSON.parse(body);
+        } catch(e) {
+          var bodyParsed = { error: e };
+        }
         send(err, bodyParsed);
       } else {
         console.log(err);
