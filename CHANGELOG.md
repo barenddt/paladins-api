@@ -3,7 +3,7 @@ Changelog
 
 List of recent updates and changes to the paladins-api NodeJS wrapper.
 
-v1.2.8
+v1.3.0
 -------------
 
 * Added some error catching when parsing JSON data.

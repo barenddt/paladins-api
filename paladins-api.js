@@ -152,7 +152,7 @@ module.exports = class API {
         try {
           var bodyParsed = JSON.parse(body);
         } catch(e) {
-          var bodyParsed = { error: e };
+          var bodyParsed = { error: 'Paladins API down.' };
         }
         send(err, bodyParsed);
       } else {
