@@ -3,7 +3,7 @@ Changelog
 
 List of recent updates and changes to the paladins-api NodeJS wrapper.
 
-v1.3.0
+v1.3.2
 -------------
 
 * Added 'getPlayerLoadouts()' method. Returns champion loadouts.

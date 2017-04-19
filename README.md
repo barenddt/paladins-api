@@ -102,7 +102,7 @@ pal.getPlayer(sessionId, 'HiRez', (err, res) => {
 
 ```getChampionRanks(session, player)``` - Returns details of the players performance with all champions.
 
-```getPlayerLoadouts(session, player)``` - Returns champion loadouts for player.
+```getPlayerLoadouts(session, playerId)``` - Returns champion loadouts for player.
 
 >**Note:** More methods will be added in the future.
 
