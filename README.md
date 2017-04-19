@@ -21,7 +21,7 @@ Navigation
 -------------
 **1.** Install the package using npm install.
 
-```nmp install paladins-api --save```
+```npm install paladins-api --save```
 
 
 <span id="setup">Setting Up</span>
