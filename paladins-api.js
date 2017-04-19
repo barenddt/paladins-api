@@ -128,6 +128,14 @@ module.exports = class API {
     });
   }
 
+  getPlayerLoadouts(session, player, send) {
+    var method = 'getplayerloadouts';
+    var url = this.urlBuilder(session, method, player);
+    this.makeRequest(url, (err, data) => {
+      send(err, data);
+    });
+  }
+
   getLeagueLeaderboard(session, queue, tier, season, send) {
     var method = 'getleagueleaderboard';
     var url = this.urlBuilder(session, method, null, null,
