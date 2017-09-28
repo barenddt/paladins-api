@@ -47,7 +47,7 @@ Navigation
 
 ```
 var sessionId;
-pal.connect((err, res) => {
+pal.connect('PC', (err, res) => {
 	if(!err) {
 		sessionId = res;
 	};
@@ -68,7 +68,7 @@ Every method we use requires a valid session variable to be passed into the func
 
 **2.** Call the method using the ```sessionsId``` and the Player's username.
 ```
-pal.getPlayer(sessionId, 'HiRez', (err, res) => {
+pal.getPlayer(sessionId, 'PC', 'HiRez', (err, res) => {
 	console.log(res);
 });
 ```
@@ -84,25 +84,25 @@ pal.getPlayer(sessionId, 'HiRez', (err, res) => {
 
 ```connect()``` - Returns a session variable that's required for all API calls.
 
-```getPlayer(session, player)``` - Returns an object with basic player statistics.
+```getPlayer(session, platform, player)``` - Returns an object with basic player statistics.
 
-```getMatchHistory(session, player)``` - Returns a list of  the players most recent matches (50).
+```getMatchHistory(session, platform, player)``` - Returns a list of  the players most recent matches (50).
 
-```getMatchDetails(session, match_id)``` - Returns details of a specific match.
+```getMatchDetails(session, platform, match_id)``` - Returns details of a specific match.
 
-```getChampions(session)``` - Returns a list of all the champions and details about them.
+```getChampions(session, platform)``` - Returns a list of all the champions and details about them.
 
-```getItems(session)``` - Returns all the items in the game, including cards, items etc...
+```getItems(session, platform)``` - Returns all the items in the game, including cards, items etc...
 
-```getDataUsed(session)``` - Returns an object containing resources used.
+```getDataUsed(session, platform)``` - Returns an object containing resources used.
 
-```getPlayerStatus(session, player)``` - Returns the current status of the player. (offline, in-lobby etc.)
+```getPlayerStatus(session, platform, player)``` - Returns the current status of the player. (offline, in-lobby etc.)
 
-```getChampionSkins(session, champ_id)``` - Returns all skins available for chosen champion.
+```getChampionSkins(session, platform, champ_id)``` - Returns all skins available for chosen champion.
 
-```getChampionRanks(session, player)``` - Returns details of the players performance with all champions.
+```getChampionRanks(session, platform, player)``` - Returns details of the players performance with all champions.
 
-```getPlayerLoadouts(session, playerId)``` - Returns champion loadouts for player.
+```getPlayerLoadouts(session, platform, playerId)``` - Returns champion loadouts for player.
 
 >**Note:** More methods will be added in the future.
 
