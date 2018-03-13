@@ -156,16 +156,18 @@ module.exports = class API {
 
   makeRequest(url, send) {
     request(url, function(err, res, body) {
-      if(!err) {
+      // The callback will be invoked with these variables, one should be filled one should be left null.
+      var localError = null, bodyParsed = null;
+      if(!err)
         try {
-          var bodyParsed = JSON.parse(body);
+          bodyParsed = JSON.parse(body);
         } catch(e) {
-          var bodyParsed = { error: 'Paladins API down.' };
+          localError = { error: 'Paladins API down.', exception: e };
         }
-        send(err, bodyParsed);
       } else {
-        console.log(err);
+        localError = { error: 'Paladins API down.', data: err };
       }
+      send(localError, bodyParsed);
     });
   }
 
