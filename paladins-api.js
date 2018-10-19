@@ -1,15 +1,16 @@
-var request = require('fetch').fetchUrl;
-var moment = require('moment');
-var md5 = require('md5');
-var c = require('./constants');
+var request = require("fetch").fetchUrl;
+var moment = require("moment");
+var md5 = require("md5");
+var c = require("./constants");
 
 module.exports = class API {
-
   constructor(devId, authKey, format, lang) {
-    (!devId) ? console.log('Error: No devId specified.') : this.devId = devId;
-    (!authKey) ? console.log('Error: No authKey specified.') : this.authKey = authKey;
-    (!format) ? this.format = 'Json' : (this.format = c[format]);
-    (!lang) ? this.lang = '1' : (this.lang = c[lang]);
+    !devId ? console.log("Error: No devId specified.") : (this.devId = devId);
+    !authKey
+      ? console.log("Error: No authKey specified.")
+      : (this.authKey = authKey);
+    !format ? (this.format = "Json") : (this.format = c[format]);
+    !lang ? (this.lang = "1") : (this.lang = c[lang]);
   }
 
   getFormat(send) {
@@ -29,7 +30,7 @@ module.exports = class API {
   }
 
   getPlayer(session, player, send) {
-    var method = 'getplayer';
+    var method = "getplayer";
     var url = this.urlBuilder(session, method, player);
     this.makeRequest(url, (err, data) => {
       send(err, data);
@@ -37,7 +38,7 @@ module.exports = class API {
   }
 
   getPlayerStatus(session, player, send) {
-    var method = 'getplayerstatus';
+    var method = "getplayerstatus";
     var url = this.urlBuilder(session, method, player);
     this.makeRequest(url, (err, data) => {
       send(err, data);
@@ -45,7 +46,7 @@ module.exports = class API {
   }
 
   getMatchHistory(session, player, send) {
-    var method = 'getmatchhistory';
+    var method = "getmatchhistory";
     var url = this.urlBuilder(session, method, player);
     this.makeRequest(url, (err, data) => {
       send(err, data);
@@ -53,7 +54,7 @@ module.exports = class API {
   }
 
   getMatchDetails(session, match_id, send) {
-    var method = 'getmatchdetails';
+    var method = "getmatchdetails";
     var url = this.urlBuilder(session, method, null, null, match_id);
     this.makeRequest(url, (err, data) => {
       send(err, data);
@@ -61,7 +62,7 @@ module.exports = class API {
   }
 
   getChampions(session, send) {
-    var method = 'getchampions';
+    var method = "getchampions";
     var url = this.urlBuilder(session, method, null, this.lang);
     this.makeRequest(url, (err, data) => {
       send(err, data);
@@ -69,7 +70,7 @@ module.exports = class API {
   }
 
   getChampionRanks(session, player, send) {
-    var method = 'getchampionranks';
+    var method = "getchampionranks";
     var url = this.urlBuilder(session, method, player);
     this.makeRequest(url, (err, data) => {
       send(err, data);
@@ -77,7 +78,7 @@ module.exports = class API {
   }
 
   getChampionSkins(session, champ_id, send) {
-    var method = 'getchampionskins';
+    var method = "getchampionskins";
     var url = this.urlBuilder(session, method, null, this.lang, null, champ_id);
     this.makeRequest(url, (err, data) => {
       send(err, data);
@@ -86,10 +87,10 @@ module.exports = class API {
 
   //Currently returns an empty object. Don't know why.
   getChampionRecommendedItems(session, champ_id, send) {
-    var method = 'getchampionrecommendeditems';
+    var method = "getchampionrecommendeditems";
     var url = this.urlBuilder(session, method, null, this.lang, null, champ_id);
     request(url, function(err, res, body) {
-      if(!err) {
+      if (!err) {
         var bodyParsed = JSON.parse(body);
         send(err, bodyParsed);
       }
@@ -97,7 +98,7 @@ module.exports = class API {
   }
 
   getDemoDetails(session, match_id, send) {
-    var method = 'getdemodetails';
+    var method = "getdemodetails";
     var url = this.urlBuilder(session, method, null, null, match_id);
     this.makeRequest(url, (err, data) => {
       send(err, data);
@@ -105,7 +106,7 @@ module.exports = class API {
   }
 
   getQueueStats(session, player, queue, match_id, send) {
-    var method = 'getqueuestats';
+    var method = "getqueuestats";
     var url = this.urlBuilder(session, method, player, null, null, null, queue);
     this.makeRequest(url, (err, data) => {
       send(err, data);
@@ -113,7 +114,7 @@ module.exports = class API {
   }
 
   getItems(session, send) {
-    var method = 'getitems';
+    var method = "getitems";
     var url = this.urlBuilder(session, method, null, this.lang);
     this.makeRequest(url, (err, data) => {
       send(err, data);
@@ -121,7 +122,7 @@ module.exports = class API {
   }
 
   getDataUsed(session, send) {
-    var method = 'getdataused';
+    var method = "getdataused";
     var url = this.urlBuilder(session, method);
     this.makeRequest(url, (err, data) => {
       send(err, data);
@@ -129,7 +130,7 @@ module.exports = class API {
   }
 
   getPlayerLoadouts(session, player, send) {
-    var method = 'getplayerloadouts';
+    var method = "getplayerloadouts";
     var url = this.urlBuilder(session, method, player);
     this.makeRequest(url, (err, data) => {
       send(err, data);
@@ -137,18 +138,35 @@ module.exports = class API {
   }
 
   getLeagueLeaderboard(session, queue, tier, season, send) {
-    var method = 'getleagueleaderboard';
-    var url = this.urlBuilder(session, method, null, null,
-                              null, null, queue, tier, season);
+    var method = "getleagueleaderboard";
+    var url = this.urlBuilder(
+      session,
+      method,
+      null,
+      null,
+      null,
+      null,
+      queue,
+      tier,
+      season
+    );
     this.makeRequest(url, (err, data) => {
       send(err, data);
     });
   }
 
   connect(send) {
-    var url = c.PC + '/' + 'createsession' + this.format + '/' +
-              this.devId + '/' + this.getSignature('createsession')
-              + '/' + this.timeStamp();
+    var url =
+      c.PC +
+      "/" +
+      "createsession" +
+      this.format +
+      "/" +
+      this.devId +
+      "/" +
+      this.getSignature("createsession") +
+      "/" +
+      this.timeStamp();
     this.makeRequest(url, (err, data) => {
       send(err, data.session_id);
     });
@@ -157,40 +175,63 @@ module.exports = class API {
   makeRequest(url, send) {
     request(url, function(err, res, body) {
       // The callback will be invoked with these variables, one should be filled one should be left null.
-      var localError = null, bodyParsed = null;
-      if(!err)
+      var localError = null,
+        bodyParsed = null;
+      if (!err) {
         try {
           bodyParsed = JSON.parse(body);
-        } catch(e) {
-          localError = { error: 'Paladins API down.', exception: e };
+        } catch (e) {
+          localError = { error: "Paladins API down.", exception: e };
         }
       } else {
-        localError = { error: 'Paladins API down.', data: err };
+        localError = { error: "Paladins API down.", data: err };
       }
       send(localError, bodyParsed);
     });
   }
 
-  urlBuilder(session, method, player, lang, match_id, champ_id, queue, tier, season) {
-    var baseURL = c.PC + '/' + method + this.format + '/' + this.devId + '/' +
-                  this.getSignature(method) + '/' + session + '/' + this.timeStamp();
+  urlBuilder(
+    session,
+    method,
+    player,
+    lang,
+    match_id,
+    champ_id,
+    queue,
+    tier,
+    season
+  ) {
+    var baseURL =
+      c.PC +
+      "/" +
+      method +
+      this.format +
+      "/" +
+      this.devId +
+      "/" +
+      this.getSignature(method) +
+      "/" +
+      session +
+      "/" +
+      this.timeStamp();
 
-    (player) ? baseURL += ('/' + player) : null;
-    (champ_id) ? baseURL += ('/' + champ_id) : null;
-    (lang) ? baseURL += ('/' + lang) : null;
-    (match_id) ? baseURL += ('/' + match_id) : null;
-    (queue) ? baseURL += ('/' + queue) : null;
-    (tier) ? baseURL += ('/' + tier) : null;
-    (season) ? baseURL += ('/' + season) : null;
+    player ? (baseURL += "/" + player) : null;
+    champ_id ? (baseURL += "/" + champ_id) : null;
+    lang ? (baseURL += "/" + lang) : null;
+    match_id ? (baseURL += "/" + match_id) : null;
+    queue ? (baseURL += "/" + queue) : null;
+    tier ? (baseURL += "/" + tier) : null;
+    season ? (baseURL += "/" + season) : null;
     return baseURL;
   }
 
   timeStamp() {
-    return moment().utc().format('YYYYMMDDHHmmss');
+    return moment()
+      .utc()
+      .format("YYYYMMDDHHmmss");
   }
 
   getSignature(method) {
     return md5(this.devId + method + this.authKey + this.timeStamp());
   }
-
 };
