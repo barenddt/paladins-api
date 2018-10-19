@@ -1,6 +1,6 @@
 {
   "name": "paladins-api",
-  "version": "1.3.2",
+  "version": "1.5.2",
   "description": "Wrapper for the Paladins API",
   "main": "paladins-api.js",
   "scripts": {
