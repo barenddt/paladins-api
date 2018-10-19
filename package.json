@@ -1,6 +1,6 @@
 {
   "name": "paladins-api",
-  "version": "1.5.3",
+  "version": "1.5.4",
   "description": "Wrapper for the Paladins API",
   "main": "paladins-api.js",
   "scripts": {
@@ -11,7 +11,7 @@
     "url": "git+https://github.com/barenddt/paladins-api-nodejs.git"
   },
   "author": "Barend Du Toit",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/barenddt/paladins-api-nodejs/issues"
   },
